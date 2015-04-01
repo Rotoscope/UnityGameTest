@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Unit\UnitAI.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Unit\UnitAttributes.cs" Line="24" Column="31" />
+      <File FileName="Assets\Scripts\Spawner.cs" Line="36" Column="13" />
+      <File FileName="Assets\Scripts\Unit\UnitAI.cs" Line="42" Column="4" />
+      <File FileName="Assets\Scripts\Unit\NavMeshAI.cs" Line="15" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
