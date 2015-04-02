@@ -2,8 +2,6 @@
 using System.Collections;
 
 public class UnitAI : MonoBehaviour {
-	public float attackRange;
-	public float attackInterval;
 	UnitAttributes attr;
 	NavMeshAI ai;
 	public float enemyDistance;
@@ -17,27 +15,28 @@ public class UnitAI : MonoBehaviour {
 		ai = GetComponent<NavMeshAI> () as NavMeshAI;
 		attacking = false;
 		hasEnemy = true;
-		attackInterval = 3.0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (hasEnemy) {
+		if (hasEnemy && enemy != null) {
 			//attack if it has an enemy
 			enemyDistance = Vector3.Distance (enemy.transform.position, transform.position);
-			if (enemyDistance <= attackRange) {
+			if (enemyDistance <= attr.GetAttackRange()) {
 				if (!attacking) {
-					Invoke ("ApplyDamage", attackInterval);	//do damage every attackInt seconds
+					Invoke ("ApplyDamage", attr.GetAttackSpeed());	//do damage every attackInt seconds
 					attacking = true;
 				}
-				if(enemy.GetComponent<UnitAttributes>().GetUnitHP() <= 0) {
-					Destroy(enemy);
-					hasEnemy = false;
-				}
+			}
+			if(enemy.GetComponent<UnitAttributes>().GetUnitHP() <= 0) {
+				Destroy(enemy);
+				ai.SetTarget(null);
+				enemy = null;
+				hasEnemy = false;
 			}
 		} else {
 			//search for an enemy
-			//enemy = 
+			//this.SetEnemy(BattleController.SearchForEnemy(attr.GetType()); 
 			//
 		}
 	}
