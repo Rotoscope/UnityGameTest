@@ -24,10 +24,12 @@ public class Spawner : MonoBehaviour {
 	}
 
 	void OnGUI() {
+		/*
 		if(!aTexture) {
 			Debug.LogError("Please assign a texture in the inspector.");
 			return;
 		}
+		*/
 		toggleTxt = GUILayout.Toggle (toggleTxt, "Herbivore");
 	}
 
@@ -42,7 +44,7 @@ public class Spawner : MonoBehaviour {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out hit, 1000.0f))
 			{
-				print (hit.collider.gameObject.name);
+				print (hit.collider.gameObject.tag);
 				if (hit.collider.gameObject.tag == "Terrain") {
 					Instantiate (loadedInvader, hit.point, Quaternion.identity);
 				}

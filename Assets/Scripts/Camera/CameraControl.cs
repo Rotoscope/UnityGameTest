@@ -4,8 +4,8 @@ using System.Collections;
 
 public class CameraControl : MonoBehaviour {
 	public float speed = 5.0f;
-	int defaultCameraHeight = 50;
-	float defaultFOV = 75.0f;
+	const float defaultCameraHeight = 20.0f;
+	const float defaultFOV = 75.0f;
 	const float maxFOV = 110.0f;
 	const float minFOV = 60.0f;
 	float fov;
@@ -13,7 +13,9 @@ public class CameraControl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		fov = defaultFOV;
+		transform.rotation = Quaternion.Euler (90, 0, 0);
+		Camera.main.fieldOfView = defaultFOV;
+		transform.position = new Vector3(transform.position.x, defaultCameraHeight, transform.position.z);
 	}
 	
 	// Update is called once per frame
