@@ -8,6 +8,7 @@ public class UnitAI : MonoBehaviour {
 	public GameObject enemy;
 	bool attacking;
 	public bool hasEnemy;
+	public string enemyTag;
 
 	// Use this for initialization
 	void Start () {
@@ -36,8 +37,7 @@ public class UnitAI : MonoBehaviour {
 			}
 		} else {
 			//search for an enemy
-			//this.SetEnemy(BattleController.SearchForEnemy(attr.GetType()); 
-			//
+			this.SetEnemy(FindClosestEnemy(enemyTag));
 		}
 	}
 
@@ -56,4 +56,24 @@ public class UnitAI : MonoBehaviour {
 
 	}
 
+	public GameObject FindClosestEnemy(string enemyTag) {
+		GameObject[] enemies;
+		enemies = GameObject.FindGameObjectsWithTag (enemyTag);
+		GameObject closest = null;
+		float distance = Mathf.Infinity;
+		Vector3 ourPosition = transform.position;
+
+		if (enemies.Length == 0)
+			return closest;
+
+		foreach (GameObject enemy in enemies) {
+			Vector3 distanceDifference = (enemy.transform.position - ourPosition);
+			float currentDistance = distanceDifference.sqrMagnitude;
+			if (currentDistance < distance) {
+				closest = enemy;
+				distance = currentDistance;
+			}
+		}
+		return closest;
+	}
 }

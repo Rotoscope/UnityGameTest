@@ -47,7 +47,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Battle\BattleController.cs" />
-     <Compile Include="Assets\Scripts\Battle\Spawner.cs" />
+     <Compile Include="Assets\Scripts\Camera\CameraControl.cs" />
+     <Compile Include="Assets\Scripts\Camera\Spawner.cs" />
      <Compile Include="Assets\Scripts\Unit\NavMeshAI.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAI.cs" />
      <Compile Include="Assets\Scripts\Unit\UnitAttributes.cs" />
